@@ -14,18 +14,18 @@
 
         :root {
             --primary-color: #00D9FF;
-            --secondary-color: #FF006E;
+            --secondary-color: #FF7F50;
             --accent-color: #FFBE0B;
-            --tertiary-color: #FB5607;
-            --quaternary-color: #8338EC;
+            --tertiary-color: #FF6347;
+            --quaternary-color: #4682B4;
             --space-bg: #0B0B2B;
             --card-bg: rgba(255, 255, 255, 0.1);
             --text-primary: #FFFFFF;
             --text-secondary: #E0E0E0;
             --success: #00F5FF;
-            --error: #FF006E;
+            --error: #FF6347;
             --warning: #FFBE0B;
-            --info: #8338EC;
+            --info: #4682B4;
         }
 
         body {
@@ -137,15 +137,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 0, 110, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 127, 80, 0.1) 100%);
             animation: nebula 20s ease infinite;
         }
 
         @keyframes nebula {
-            0%, 100% { background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 0, 110, 0.1) 100%); }
-            25% { background: linear-gradient(135deg, rgba(255, 190, 11, 0.1) 0%, rgba(131, 56, 236, 0.1) 100%); }
-            50% { background: linear-gradient(135deg, rgba(0, 245, 255, 0.1) 0%, rgba(251, 86, 7, 0.1) 100%); }
-            75% { background: linear-gradient(135deg, rgba(131, 56, 236, 0.1) 0%, rgba(0, 217, 255, 0.1) 100%); }
+            0%, 100% { background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 127, 80, 0.1) 100%); }
+            25% { background: linear-gradient(135deg, rgba(255, 190, 11, 0.1) 0%, rgba(70, 130, 180, 0.1) 100%); }
+            50% { background: linear-gradient(135deg, rgba(0, 245, 255, 0.1) 0%, rgba(255, 99, 71, 0.1) 100%); }
+            75% { background: linear-gradient(135deg, rgba(70, 130, 180, 0.1) 0%, rgba(0, 217, 255, 0.1) 100%); }
         }
 
         .hero-content {
@@ -166,7 +166,7 @@
 
         @keyframes glow {
             0% { text-shadow: 0 0 30px rgba(0, 217, 255, 0.8); }
-            100% { text-shadow: 0 0 50px rgba(255, 0, 110, 0.8), 0 0 70px rgba(255, 190, 11, 0.6); }
+            100% { text-shadow: 0 0 50px rgba(255, 127, 80, 0.8), 0 0 70px rgba(255, 190, 11, 0.6); }
         }
 
         .hero p {
@@ -211,9 +211,9 @@
             box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
         }
         .game-btn.memory { 
-            background: rgba(255, 0, 110, 0.2); 
+            background: rgba(255, 127, 80, 0.2); 
             border-color: var(--secondary-color);
-            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 127, 80, 0.3);
         }
         .game-btn.planet { 
             background: rgba(255, 190, 11, 0.2); 
@@ -342,9 +342,9 @@
         }
 
         .option.incorrect {
-            background: rgba(255, 0, 110, 0.2);
+            background: rgba(255, 99, 71, 0.2);
             border-color: var(--error);
-            box-shadow: 0 5px 15px rgba(255, 0, 110, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 99, 71, 0.4);
         }
 
         .quiz-controls {
@@ -470,7 +470,7 @@
 
         .memory-stat i {
             color: var(--secondary-color);
-            text-shadow: 0 0 10px rgba(255, 0, 110, 0.8);
+            text-shadow: 0 0 10px rgba(255, 127, 80, 0.8);
         }
 
         /* Planet Guessing Game */
@@ -540,9 +540,9 @@
         }
 
         .planet-option.incorrect {
-            background: rgba(255, 0, 110, 0.2);
+            background: rgba(255, 99, 71, 0.2);
             border-color: var(--error);
-            box-shadow: 0 5px 15px rgba(255, 0, 110, 0.4);
+            box-shadow: 0 5px 15px rgba(255, 99, 71, 0.4);
         }
 
         /* Leaderboard */
@@ -620,7 +620,7 @@
 
         .rank.gold { color: #FFBE0B; text-shadow: 0 0 10px rgba(255, 190, 11, 0.8); }
         .rank.silver { color: #E0E0E0; text-shadow: 0 0 10px rgba(224, 224, 224, 0.8); }
-        .rank.bronze { color: #FF6B35; text-shadow: 0 0 10px rgba(255, 107, 53, 0.8); }
+        .rank.bronze { color: #CD7F32; text-shadow: 0 0 10px rgba(205, 127, 50, 0.8); }
 
         .player-info {
             display: flex;
@@ -1515,7 +1515,7 @@
                 item.className = 'leaderboard-item animate-in';
                 
                 const rankClass = index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : '';
-                const rankIcon = index < 3 ? `<i class="fas fa-trophy" style="color: ${rankClass === 'gold' ? '#FFBE0B' : rankClass === 'silver' ? '#E0E0E0' : '#FF6B35'}"></i>` : '';
+                const rankIcon = index < 3 ? `<i class="fas fa-trophy" style="color: ${rankClass === 'gold' ? '#FFBE0B' : rankClass === 'silver' ? '#E0E0E0' : '#CD7F32'}"></i>` : '';
                 
                 item.innerHTML = `
                     <div class="rank ${rankClass}">${rankIcon || index + 1}</div>
