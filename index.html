@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AstraQuest - Explore the Cosmos</title>
+    <title>AstraQuest - Cosmic Gaming Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,27 +13,114 @@
         }
 
         :root {
-            --primary-color: #6366f1;
-            --secondary-color: #8b5cf6;
-            --accent-color: #ec4899;
-            --dark-bg: #0f0f23;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --success: #10b981;
-            --error: #ef4444;
-            --warning: #f59e0b;
+            --primary-color: #00D9FF;
+            --secondary-color: #FF006E;
+            --accent-color: #FFBE0B;
+            --tertiary-color: #FB5607;
+            --quaternary-color: #8338EC;
+            --space-bg: #0B0B2B;
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --text-primary: #FFFFFF;
+            --text-secondary: #E0E0E0;
+            --success: #00F5FF;
+            --error: #FF006E;
+            --warning: #FFBE0B;
+            --info: #8338EC;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--dark-bg);
+            background-color: var(--space-bg);
             color: var(--text-primary);
             overflow-x: hidden;
             min-height: 100vh;
+            background-image: url('https://picsum.photos/seed/space4k/3840/2160.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
-        /* Hero Section with 4K Space Background */
+        /* Overlay for better text readability */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 11, 43, 0.7);
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 11, 43, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 217, 255, 0.3);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.8);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 2px;
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.8);
+        }
+
+        /* Hero Section */
         .hero {
             position: relative;
             height: 100vh;
@@ -41,6 +128,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            margin-top: 70px;
         }
 
         .hero-background {
@@ -49,23 +137,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://picsum.photos/seed/cosmos4k/3840/2160.jpg') center/cover;
-            filter: brightness(0.7);
-            animation: zoom 20s ease-in-out infinite alternate;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 0, 110, 0.1) 100%);
+            animation: nebula 20s ease infinite;
         }
 
-        @keyframes zoom {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, transparent 0%, rgba(15, 15, 35, 0.8) 100%);
+        @keyframes nebula {
+            0%, 100% { background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 0, 110, 0.1) 100%); }
+            25% { background: linear-gradient(135deg, rgba(255, 190, 11, 0.1) 0%, rgba(131, 56, 236, 0.1) 100%); }
+            50% { background: linear-gradient(135deg, rgba(0, 245, 255, 0.1) 0%, rgba(251, 86, 7, 0.1) 100%); }
+            75% { background: linear-gradient(135deg, rgba(131, 56, 236, 0.1) 0%, rgba(0, 217, 255, 0.1) 100%); }
         }
 
         .hero-content {
@@ -78,41 +158,67 @@
         .hero h1 {
             font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary);
             margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(0, 217, 255, 0.8);
             animation: glow 3s ease-in-out infinite alternate;
         }
 
         @keyframes glow {
-            0% { filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5)); }
-            100% { filter: drop-shadow(0 0 40px rgba(236, 72, 153, 0.8)); }
+            0% { text-shadow: 0 0 30px rgba(0, 217, 255, 0.8); }
+            100% { text-shadow: 0 0 50px rgba(255, 0, 110, 0.8), 0 0 70px rgba(255, 190, 11, 0.6); }
         }
 
         .hero p {
             font-size: 1.5rem;
             color: var(--text-secondary);
             margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 3rem;
-            font-size: 1.2rem;
+        .game-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .game-btn {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: var(--text-primary);
             text-decoration: none;
             border-radius: 50px;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .cta-button:hover {
+        .game-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+            box-shadow: 0 15px 40px rgba(0, 217, 255, 0.4);
+        }
+
+        .game-btn.trivia { 
+            background: rgba(0, 217, 255, 0.2); 
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+        }
+        .game-btn.memory { 
+            background: rgba(255, 0, 110, 0.2); 
+            border-color: var(--secondary-color);
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+        }
+        .game-btn.planet { 
+            background: rgba(255, 190, 11, 0.2); 
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 30px rgba(255, 190, 11, 0.3);
         }
 
         /* Main Content */
@@ -130,22 +236,36 @@
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 3rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
         }
 
-        /* Quiz Section */
-        .quiz-container {
+        /* Game Containers */
+        .game-container {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            margin-bottom: 3rem;
+            display: none;
         }
 
+        .game-container.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Trivia Game Styles */
         .quiz-header {
             display: flex;
             justify-content: space-between;
@@ -166,10 +286,12 @@
             align-items: center;
             gap: 0.5rem;
             font-size: 1.1rem;
+            color: var(--text-secondary);
         }
 
         .info-item i {
             color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.8);
         }
 
         .question-container {
@@ -180,6 +302,8 @@
             font-size: 1.5rem;
             margin-bottom: 2rem;
             line-height: 1.6;
+            color: var(--text-primary);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
         .options {
@@ -195,27 +319,32 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 1.1rem;
+            color: var(--text-primary);
         }
 
         .option:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 217, 255, 0.1);
             border-color: var(--primary-color);
             transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 217, 255, 0.3);
         }
 
         .option.selected {
-            background: rgba(99, 102, 241, 0.2);
+            background: rgba(0, 217, 255, 0.2);
             border-color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4);
         }
 
         .option.correct {
-            background: rgba(16, 185, 129, 0.2);
+            background: rgba(0, 245, 255, 0.2);
             border-color: var(--success);
+            box-shadow: 0 5px 15px rgba(0, 245, 255, 0.4);
         }
 
         .option.incorrect {
-            background: rgba(239, 68, 68, 0.2);
+            background: rgba(255, 0, 110, 0.2);
             border-color: var(--error);
+            box-shadow: 0 5px 15px rgba(255, 0, 110, 0.4);
         }
 
         .quiz-controls {
@@ -235,31 +364,185 @@
             border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
+            color: var(--text-primary);
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
+            box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 217, 255, 0.6);
         }
 
         .btn-secondary {
             background: rgba(255, 255, 255, 0.1);
-            color: white;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
         }
 
         .btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+        }
+
+        /* Memory Game Styles */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .memory-card {
+            aspect-ratio: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .memory-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .memory-card.matched {
+            animation: matchPulse 0.6s ease;
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
+        }
+
+        @keyframes matchPulse {
+            0% { transform: scale(1) rotateY(180deg); }
+            50% { transform: scale(1.1) rotateY(180deg); }
+            100% { transform: scale(1) rotateY(180deg); }
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, var(--secondary-color), var(--quaternary-color));
+            color: white;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-back {
+            background: rgba(255, 255, 255, 0.9);
+            transform: rotateY(180deg);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .memory-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        .memory-stat {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+        }
+
+        .memory-stat i {
+            color: var(--secondary-color);
+            text-shadow: 0 0 10px rgba(255, 0, 110, 0.8);
+        }
+
+        /* Planet Guessing Game */
+        .planet-game {
+            text-align: center;
+        }
+
+        .planet-display {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .planet-hint {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .planet-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto 2rem;
+        }
+
+        .planet-option {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .planet-option:hover {
+            background: rgba(255, 190, 11, 0.2);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 190, 11, 0.4);
+        }
+
+        .planet-option.correct {
+            background: rgba(0, 245, 255, 0.2);
+            border-color: var(--success);
+            box-shadow: 0 5px 15px rgba(0, 245, 255, 0.4);
+        }
+
+        .planet-option.incorrect {
+            background: rgba(255, 0, 110, 0.2);
+            border-color: var(--error);
+            box-shadow: 0 5px 15px rgba(255, 0, 110, 0.4);
         }
 
         /* Leaderboard */
@@ -268,8 +551,8 @@
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .leaderboard-tabs {
@@ -302,6 +585,7 @@
             width: 100%;
             height: 3px;
             background: var(--primary-color);
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.8);
         }
 
         .leaderboard-list {
@@ -318,22 +602,25 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .leaderboard-item:hover {
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(0, 217, 255, 0.1);
             transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 217, 255, 0.3);
         }
 
         .rank {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(0, 217, 255, 0.8);
         }
 
-        .rank.gold { color: #fbbf24; }
-        .rank.silver { color: #9ca3af; }
-        .rank.bronze { color: #f97316; }
+        .rank.gold { color: #FFBE0B; text-shadow: 0 0 10px rgba(255, 190, 11, 0.8); }
+        .rank.silver { color: #E0E0E0; text-shadow: 0 0 10px rgba(224, 224, 224, 0.8); }
+        .rank.bronze { color: #FF6B35; text-shadow: 0 0 10px rgba(255, 107, 53, 0.8); }
 
         .player-info {
             display: flex;
@@ -351,17 +638,21 @@
             justify-content: center;
             font-size: 1.5rem;
             font-weight: 700;
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 217, 255, 0.6);
         }
 
         .player-name {
             font-size: 1.2rem;
             font-weight: 600;
+            color: var(--text-primary);
         }
 
         .player-score {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(255, 190, 11, 0.8);
         }
 
         .player-date {
@@ -378,7 +669,8 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
+            backdrop-filter: blur(5px);
+            z-index: 2000;
             align-items: center;
             justify-content: center;
         }
@@ -388,13 +680,15 @@
         }
 
         .modal-content {
-            background: var(--dark-bg);
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
             border-radius: 20px;
             padding: 3rem;
             max-width: 500px;
             width: 90%;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .modal h2 {
@@ -404,42 +698,33 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
         }
 
         .modal input {
             width: 100%;
             padding: 1rem;
             margin: 1rem 0;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 10px;
-            color: white;
+            color: var(--text-primary);
             font-size: 1.1rem;
+            backdrop-filter: blur(10px);
         }
 
         .modal input:focus {
             outline: none;
             border-color: var(--primary-color);
-        }
-
-        /* Animations */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-in {
-            animation: slideIn 0.5s ease-out;
+            box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
         }
 
         /* Responsive */
         @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
             .hero h1 {
                 font-size: 3rem;
             }
@@ -448,9 +733,8 @@
                 font-size: 1.2rem;
             }
 
-            .quiz-container,
-            .leaderboard-container {
-                padding: 2rem;
+            .memory-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .leaderboard-item {
@@ -462,19 +746,52 @@
             }
         }
 
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top-color: var(--primary-color);
-            animation: spin 1s ease-in-out infinite;
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Game Start Screens */
+        .game-start {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .game-start h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .game-start p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .question-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .reset-info {
+            text-align: center;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         /* Stars Background */
@@ -507,25 +824,46 @@
     <!-- Stars Background -->
     <div class="stars" id="stars"></div>
 
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">AstraQuest</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#trivia">Trivia</a></li>
+                <li><a href="#memory">Memory</a></li>
+                <li><a href="#planet">Planet Quest</a></li>
+                <li><a href="#leaderboard">Leaderboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="hero-background"></div>
-        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>AstraQuest</h1>
-            <p>Embark on an Epic Journey Through the Cosmos</p>
-            <a href="#quiz" class="cta-button" onclick="startQuiz()">
-                <i class="fas fa-rocket"></i> Start Your Quest
-            </a>
+            <p>Your Ultimate Cosmic Gaming Hub</p>
+            <div class="game-buttons">
+                <a href="#trivia" class="game-btn trivia" onclick="showGame('trivia')">
+                    <i class="fas fa-brain"></i> Space Trivia
+                </a>
+                <a href="#memory" class="game-btn memory" onclick="showGame('memory')">
+                    <i class="fas fa-puzzle-piece"></i> Memory Game
+                </a>
+                <a href="#planet" class="game-btn planet" onclick="showGame('planet')">
+                    <i class="fas fa-globe"></i> Planet Quest
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Main Content -->
     <main class="main-content">
-        <!-- Quiz Section -->
-        <section id="quiz" class="section">
-            <h2 class="section-title">Space Knowledge Challenge</h2>
-            <div class="quiz-container">
+        <!-- Trivia Game Section -->
+        <section id="trivia" class="section">
+            <h2 class="section-title">Space Trivia Challenge</h2>
+            <div class="game-container active" id="trivia-game">
                 <div class="quiz-header">
                     <div class="quiz-info">
                         <div class="info-item">
@@ -559,19 +897,102 @@
                     </div>
                 </div>
 
-                <div id="quizStart" class="text-center">
-                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--text-secondary);">
-                        Test your knowledge of the cosmos with our dynamic quiz system. Each session generates unique questions to keep you challenged!
-                    </p>
+                <div id="quizStart" class="game-start">
+                    <h3>Test Your Space Knowledge!</h3>
+                    <p>Challenge yourself with our dynamic space trivia. Each session brings new questions!</p>
+                    <div class="question-info">
+                        <span><i class="fas fa-database"></i> Total Questions: <span id="totalQuestionsDB">20</span></span>
+                        <span><i class="fas fa-eye"></i> Questions Seen: <span id="questionsSeen">0</span></span>
+                        <span><i class="fas fa-sync"></i> New Questions: <span id="newQuestions">20</span></span>
+                    </div>
                     <button class="btn btn-primary" onclick="initializeQuiz()">
                         <i class="fas fa-play"></i> Begin Quiz
+                    </button>
+                    <div class="reset-info">
+                        <button class="btn btn-secondary" onclick="resetQuestionHistory()">
+                            <i class="fas fa-redo"></i> Reset Question History
+                        </button>
+                        <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+                            Reset if you want to see all questions again
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memory Game Section -->
+        <section id="memory" class="section">
+            <h2 class="section-title">Cosmic Memory Game</h2>
+            <div class="game-container" id="memory-game">
+                <div class="memory-stats">
+                    <div class="memory-stat">
+                        <i class="fas fa-mouse-pointer"></i>
+                        <span>Moves: <span id="memoryMoves">0</span></span>
+                    </div>
+                    <div class="memory-stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Time: <span id="memoryTimer">00:00</span></span>
+                    </div>
+                    <div class="memory-stat">
+                        <i class="fas fa-trophy"></i>
+                        <span>Matches: <span id="memoryMatches">0</span>/8</span>
+                    </div>
+                </div>
+
+                <div id="memoryContent" style="display: none;">
+                    <div class="memory-grid" id="memoryGrid"></div>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="btn btn-secondary" onclick="resetMemoryGame()">
+                            <i class="fas fa-redo"></i> New Game
+                        </button>
+                    </div>
+                </div>
+
+                <div id="memoryStart" class="game-start">
+                    <h3>Match the Cosmic Pairs!</h3>
+                    <p>Test your memory by matching space-themed cards. Find all 8 pairs as quickly as possible!</p>
+                    <button class="btn btn-primary" onclick="initializeMemoryGame()">
+                        <i class="fas fa-play"></i> Start Game
                     </button>
                 </div>
             </div>
         </section>
 
+        <!-- Planet Guessing Game Section -->
+        <section id="planet" class="section">
+            <h2 class="section-title">Planet Quest</h2>
+            <div class="game-container" id="planet-game">
+                <div class="planet-game">
+                    <div id="planetContent" style="display: none;">
+                        <div class="planet-display" id="planetDisplay">🌍</div>
+                        <div class="planet-hint" id="planetHint">
+                            I am the third planet from the Sun and the only known planet to harbor life.
+                        </div>
+                        <div class="planet-options" id="planetOptions"></div>
+                        <div style="text-align: center;">
+                            <button class="btn btn-secondary" onclick="nextPlanetQuestion()">
+                                <i class="fas fa-forward"></i> Next Planet
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="planetStart" class="game-start">
+                        <h3>Guess the Planet!</h3>
+                        <p>Use the hints to identify the planet. How many can you get right?</p>
+                        <div class="info-item" style="justify-content: center; margin-bottom: 2rem;">
+                            <i class="fas fa-star"></i>
+                            <span>Score: <span id="planetScore">0</span></span>
+                        </div>
+                        <button class="btn btn-primary" onclick="initializePlanetGame()">
+                            <i class="fas fa-play"></i> Start Quest
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Leaderboard Section -->
-        <section class="section">
+        <section id="leaderboard" class="section">
             <h2 class="section-title">Cosmic Leaderboard</h2>
             <div class="leaderboard-container">
                 <div class="leaderboard-tabs">
@@ -594,7 +1015,7 @@
     <!-- Score Modal -->
     <div id="scoreModal" class="modal">
         <div class="modal-content">
-            <h2>Quiz Complete!</h2>
+            <h2>Game Complete!</h2>
             <p style="font-size: 1.5rem; margin: 1rem 0;">Your Score: <span id="finalScore" style="color: var(--accent-color); font-weight: 700;"></span></p>
             <p style="color: var(--text-secondary); margin-bottom: 2rem;">Enter your name to join the leaderboard</p>
             <input type="text" id="playerName" placeholder="Enter your name" maxlength="20">
@@ -608,131 +1029,63 @@
     </div>
 
     <script>
-        // Question Database
+        // Question Database with unique IDs
         const questionDatabase = [
-            {
-                question: "What is the largest planet in our solar system?",
-                options: ["Saturn", "Jupiter", "Neptune", "Uranus"],
-                correct: 1,
-                category: "planets"
-            },
-            {
-                question: "Which galaxy is closest to the Milky Way?",
-                options: ["Andromeda", "Triangulum", "Whirlpool", "Sombrero"],
-                correct: 0,
-                category: "astronomy"
-            },
-            {
-                question: "What was the first artificial satellite launched into space?",
-                options: ["Explorer 1", "Sputnik 1", "Vanguard 1", "Luna 1"],
-                correct: 1,
-                category: "missions"
-            },
-            {
-                question: "How long does it take light from the Sun to reach Earth?",
-                options: ["8 minutes", "1 hour", "1 day", "1 second"],
-                correct: 0,
-                category: "astronomy"
-            },
-            {
-                question: "What is the name of the phenomenon where a star suddenly increases in brightness?",
-                options: ["Pulsar", "Nova", "Quasar", "Nebula"],
-                correct: 1,
-                category: "phenomena"
-            },
-            {
-                question: "Which planet has the most moons?",
-                options: ["Jupiter", "Saturn", "Uranus", "Neptune"],
-                correct: 1,
-                category: "planets"
-            },
-            {
-                question: "What is the name of NASA's Mars rover that landed in 2021?",
-                options: ["Curiosity", "Opportunity", "Perseverance", "Spirit"],
-                correct: 2,
-                category: "missions"
-            },
-            {
-                question: "What causes the aurora borealis (Northern Lights)?",
-                options: ["Solar wind interacting with Earth's magnetic field", "Reflection of moonlight", "Volcanic activity", "Lightning storms"],
-                correct: 0,
-                category: "phenomena"
-            },
-            {
-                question: "What is the hottest planet in our solar system?",
-                options: ["Mercury", "Venus", "Mars", "Jupiter"],
-                correct: 1,
-                category: "planets"
-            },
-            {
-                question: "Who was the first person to walk on the Moon?",
-                options: ["Buzz Aldrin", "Neil Armstrong", "John Glenn", "Yuri Gagarin"],
-                correct: 1,
-                category: "missions"
-            },
-            {
-                question: "What is a black hole's event horizon?",
-                options: ["The center of the black hole", "The point of no return", "The outer edge of the accretion disk", "The birthplace of stars"],
-                correct: 1,
-                category: "astronomy"
-            },
-            {
-                question: "Which planet rotates on its side?",
-                options: ["Venus", "Mars", "Uranus", "Neptune"],
-                correct: 2,
-                category: "planets"
-            },
-            {
-                question: "What is the name of the telescope launched in 2021 that can see infrared light?",
-                options: ["Hubble", "Webb", "Kepler", "Spitzer"],
-                correct: 1,
-                category: "missions"
-            },
-            {
-                question: "What causes a solar eclipse?",
-                options: ["The Moon passing between Earth and the Sun", "Earth passing between the Moon and Sun", "The Sun's corona expanding", "A comet blocking sunlight"],
-                correct: 0,
-                category: "phenomena"
-            },
-            {
-                question: "What is the Great Red Spot on Jupiter?",
-                options: ["A mountain range", "A giant storm", "A volcanic eruption", "An alien spacecraft"],
-                correct: 1,
-                category: "planets"
-            },
-            {
-                question: "Which space agency launched the first human into space?",
-                options: ["NASA", "ESA", "Roscosmos", "CNSA"],
-                correct: 2,
-                category: "missions"
-            },
-            {
-                question: "What is a supernova?",
-                options: ["The birth of a star", "The death of a massive star", "A galaxy collision", "A planet explosion"],
-                correct: 1,
-                category: "phenomena"
-            },
-            {
-                question: "Which planet has the longest day?",
-                options: ["Mercury", "Venus", "Mars", "Jupiter"],
-                correct: 1,
-                category: "planets"
-            },
-            {
-                question: "What was the name of the first space station?",
-                options: ["Skylab", "Mir", "Salyut 1", "ISS"],
-                correct: 2,
-                category: "missions"
-            },
-            {
-                question: "What is the Oort Cloud?",
-                options: ["A nebula", "A spherical shell of icy objects", "A galaxy", "A star cluster"],
-                correct: 1,
-                category: "astronomy"
-            }
+            { id: 1, question: "What is the largest planet in our solar system?", options: ["Saturn", "Jupiter", "Neptune", "Uranus"], correct: 1, category: "planets" },
+            { id: 2, question: "Which galaxy is closest to the Milky Way?", options: ["Andromeda", "Triangulum", "Whirlpool", "Sombrero"], correct: 0, category: "astronomy" },
+            { id: 3, question: "What was the first artificial satellite launched into space?", options: ["Explorer 1", "Sputnik 1", "Vanguard 1", "Luna 1"], correct: 1, category: "missions" },
+            { id: 4, question: "How long does it take light from the Sun to reach Earth?", options: ["8 minutes", "1 hour", "1 day", "1 second"], correct: 0, category: "astronomy" },
+            { id: 5, question: "What is the name of the phenomenon where a star suddenly increases in brightness?", options: ["Pulsar", "Nova", "Quasar", "Nebula"], correct: 1, category: "phenomena" },
+            { id: 6, question: "Which planet has the most moons?", options: ["Jupiter", "Saturn", "Uranus", "Neptune"], correct: 1, category: "planets" },
+            { id: 7, question: "What is the name of NASA's Mars rover that landed in 2021?", options: ["Curiosity", "Opportunity", "Perseverance", "Spirit"], correct: 2, category: "missions" },
+            { id: 8, question: "What causes the aurora borealis (Northern Lights)?", options: ["Solar wind interacting with Earth's magnetic field", "Reflection of moonlight", "Volcanic activity", "Lightning storms"], correct: 0, category: "phenomena" },
+            { id: 9, question: "What is the hottest planet in our solar system?", options: ["Mercury", "Venus", "Mars", "Jupiter"], correct: 1, category: "planets" },
+            { id: 10, question: "Who was the first person to walk on the Moon?", options: ["Buzz Aldrin", "Neil Armstrong", "John Glenn", "Yuri Gagarin"], correct: 1, category: "missions" },
+            { id: 11, question: "What is a black hole's event horizon?", options: ["The center of the black hole", "The point of no return", "The outer edge of the accretion disk", "The birthplace of stars"], correct: 1, category: "astronomy" },
+            { id: 12, question: "Which planet rotates on its side?", options: ["Venus", "Mars", "Uranus", "Neptune"], correct: 2, category: "planets" },
+            { id: 13, question: "What is the name of the telescope launched in 2021 that can see infrared light?", options: ["Hubble", "Webb", "Kepler", "Spitzer"], correct: 1, category: "missions" },
+            { id: 14, question: "What causes a solar eclipse?", options: ["The Moon passing between Earth and the Sun", "Earth passing between the Moon and Sun", "The Sun's corona expanding", "A comet blocking sunlight"], correct: 0, category: "phenomena" },
+            { id: 15, question: "What is the Great Red Spot on Jupiter?", options: ["A mountain range", "A giant storm", "A volcanic eruption", "An alien spacecraft"], correct: 1, category: "planets" },
+            { id: 16, question: "Which space agency launched the first human into space?", options: ["NASA", "ESA", "Roscosmos", "CNSA"], correct: 2, category: "missions" },
+            { id: 17, question: "What is a supernova?", options: ["The birth of a star", "The death of a massive star", "A galaxy collision", "A planet explosion"], correct: 1, category: "phenomena" },
+            { id: 18, question: "Which planet has the longest day?", options: ["Mercury", "Venus", "Mars", "Jupiter"], correct: 1, category: "planets" },
+            { id: 19, question: "What was the name of the first space station?", options: ["Skylab", "Mir", "Salyut 1", "ISS"], correct: 2, category: "missions" },
+            { id: 20, question: "What is the Oort Cloud?", options: ["A nebula", "A spherical shell of icy objects", "A galaxy", "A star cluster"], correct: 1, category: "astronomy" }
         ];
 
-        // Game State
+        // Memory Game Cards
+        const memoryCards = [
+            { id: 1, emoji: '🚀', match: 1 },
+            { id: 2, emoji: '🌟', match: 2 },
+            { id: 3, emoji: '🌙', match: 3 },
+            { id: 4, emoji: '🛸', match: 4 },
+            { id: 5, emoji: '🌍', match: 5 },
+            { id: 6, emoji: '☄️', match: 6 },
+            { id: 7, emoji: '🌌', match: 7 },
+            { id: 8, emoji: '👽', match: 8 },
+            { id: 9, emoji: '🚀', match: 1 },
+            { id: 10, emoji: '🌟', match: 2 },
+            { id: 11, emoji: '🌙', match: 3 },
+            { id: 12, emoji: '🛸', match: 4 },
+            { id: 13, emoji: '🌍', match: 5 },
+            { id: 14, emoji: '☄️', match: 6 },
+            { id: 15, emoji: '🌌', match: 7 },
+            { id: 16, emoji: '👽', match: 8 }
+        ];
+
+        // Planet Game Data
+        const planetData = [
+            { name: "Mercury", emoji: "☿️", hint: "I am the smallest planet and closest to the Sun. I have no atmosphere." },
+            { name: "Venus", emoji: "♀️", hint: "I am the hottest planet with a thick, toxic atmosphere. I rotate backwards." },
+            { name: "Earth", emoji: "🌍", hint: "I am the third planet from the Sun and the only known planet to harbor life." },
+            { name: "Mars", emoji: "♂️", hint: "I am known as the Red Planet due to iron oxide on my surface." },
+            { name: "Jupiter", emoji: "♃", hint: "I am the largest planet with a Great Red Spot storm." },
+            { name: "Saturn", emoji: "♄", hint: "I am famous for my spectacular ring system." },
+            { name: "Uranus", emoji: "♅", hint: "I rotate on my side and have faint rings." },
+            { name: "Neptune", emoji: "♆", hint: "I am the windiest planet with the strongest winds in the solar system." }
+        ];
+
+        // Game States
         let currentQuestions = [];
         let currentQuestionIndex = 0;
         let score = 0;
@@ -741,6 +1094,21 @@
         let seconds = 0;
         let quizActive = false;
         let currentTab = 'today';
+        let currentGame = 'trivia';
+
+        // Memory Game State
+        let memoryCardsState = [];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let memoryMoves = 0;
+        let memoryTimer = null;
+        let memorySeconds = 0;
+        let memoryActive = false;
+
+        // Planet Game State
+        let currentPlanet = null;
+        let planetScore = 0;
+        let planetActive = false;
 
         // Initialize stars background
         function createStars() {
@@ -755,42 +1123,70 @@
             }
         }
 
-        // Start quiz from hero
-        function startQuiz() {
-            document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
-            setTimeout(() => {
-                initializeQuiz();
-            }, 1000);
+        // Navigation
+        function showGame(gameType) {
+            currentGame = gameType;
+            
+            // Hide all games
+            document.querySelectorAll('.game-container').forEach(container => {
+                container.classList.remove('active');
+            });
+            
+            // Show selected game
+            document.getElementById(`${gameType}-game`).classList.add('active');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`a[href="#${gameType}"]`).classList.add('active');
+            
+            // Scroll to game
+            document.getElementById(gameType).scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Initialize quiz
+        // Trivia Game Functions
+        function updateQuestionStats() {
+            const recentQuestions = JSON.parse(localStorage.getItem('astraquest_recent_questions') || '[]');
+            const uniqueSeen = [...new Set(recentQuestions)];
+            const newQuestionsCount = questionDatabase.length - uniqueSeen.length;
+            
+            document.getElementById('totalQuestionsDB').textContent = questionDatabase.length;
+            document.getElementById('questionsSeen').textContent = uniqueSeen.length;
+            document.getElementById('newQuestions').textContent = newQuestionsCount;
+        }
+
         function initializeQuiz() {
-            // Generate random questions
-            currentQuestions = [];
-            const shuffled = [...questionDatabase].sort(() => 0.5 - Math.random());
+            const recentQuestions = JSON.parse(localStorage.getItem('astraquest_recent_questions') || '[]');
+            let availableQuestions = questionDatabase.filter(q => !recentQuestions.includes(q.id));
+            
+            if (availableQuestions.length < 10) {
+                availableQuestions = [...questionDatabase];
+                localStorage.removeItem('astraquest_recent_questions');
+            }
+            
+            const shuffled = availableQuestions.sort(() => 0.5 - Math.random());
             currentQuestions = shuffled.slice(0, 10);
             
-            // Reset game state
+            const currentQuizIds = currentQuestions.map(q => q.id);
+            const updatedRecentQuestions = [...recentQuestions, ...currentQuizIds].slice(-30);
+            localStorage.setItem('astraquest_recent_questions', JSON.stringify(updatedRecentQuestions));
+            
             currentQuestionIndex = 0;
             score = 0;
             selectedAnswer = null;
             seconds = 0;
             quizActive = true;
             
-            // Update UI
             document.getElementById('quizStart').style.display = 'none';
             document.getElementById('quizContent').style.display = 'block';
             document.getElementById('totalQuestions').textContent = currentQuestions.length;
             document.getElementById('score').textContent = score;
             
-            // Start timer
             startTimer();
-            
-            // Load first question
             loadQuestion();
         }
 
-        // Load question
         function loadQuestion() {
             if (currentQuestionIndex >= currentQuestions.length) {
                 endQuiz();
@@ -816,7 +1212,6 @@
             document.getElementById('nextButton').disabled = true;
         }
 
-        // Select answer
         function selectAnswer(index) {
             if (selectedAnswer !== null) return;
             
@@ -826,7 +1221,6 @@
             
             options[index].classList.add('selected');
             
-            // Show correct/incorrect
             setTimeout(() => {
                 options[index].classList.add(index === question.correct ? 'correct' : 'incorrect');
                 if (index !== question.correct) {
@@ -842,19 +1236,16 @@
             }, 300);
         }
 
-        // Next question
         function nextQuestion() {
             currentQuestionIndex++;
             loadQuestion();
         }
 
-        // Skip question
         function skipQuestion() {
             currentQuestionIndex++;
             loadQuestion();
         }
 
-        // Timer functions
         function startTimer() {
             timer = setInterval(() => {
                 seconds++;
@@ -869,59 +1260,226 @@
             clearInterval(timer);
         }
 
-        // End quiz
         function endQuiz() {
             quizActive = false;
             stopTimer();
+            
+            const completedQuiz = {
+                questions: currentQuestions.map(q => q.id),
+                score: score,
+                time: seconds,
+                date: new Date().toISOString(),
+                game: 'trivia'
+            };
+            
+            let quizHistory = JSON.parse(localStorage.getItem('astraquest_quiz_history') || '[]');
+            quizHistory.push(completedQuiz);
+            localStorage.setItem('astraquest_quiz_history', JSON.stringify(quizHistory));
             
             document.getElementById('finalScore').textContent = score;
             document.getElementById('scoreModal').classList.add('active');
         }
 
-        // Save score
-        function saveScore() {
-            const playerName = document.getElementById('playerName').value.trim();
-            if (!playerName) {
-                document.getElementById('playerName').style.borderColor = 'var(--error)';
-                return;
+        function resetQuestionHistory() {
+            if (confirm('Are you sure you want to reset your question history? This will allow all questions to appear again.')) {
+                localStorage.removeItem('astraquest_recent_questions');
+                localStorage.removeItem('astraquest_quiz_history');
+                updateQuestionStats();
+                alert('Question history has been reset! You will now see all questions again.');
             }
+        }
+
+        // Memory Game Functions
+        function initializeMemoryGame() {
+            memoryCardsState = [...memoryCards].sort(() => 0.5 - Math.random());
+            flippedCards = [];
+            matchedPairs = 0;
+            memoryMoves = 0;
+            memorySeconds = 0;
+            memoryActive = true;
             
-            const scoreData = {
-                name: playerName,
-                score: score,
-                time: seconds,
+            document.getElementById('memoryStart').style.display = 'none';
+            document.getElementById('memoryContent').style.display = 'block';
+            
+            updateMemoryStats();
+            createMemoryGrid();
+            startMemoryTimer();
+        }
+
+        function createMemoryGrid() {
+            const grid = document.getElementById('memoryGrid');
+            grid.innerHTML = '';
+            
+            memoryCardsState.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'memory-card';
+                cardElement.dataset.index = index;
+                cardElement.dataset.match = card.match;
+                cardElement.onclick = () => flipCard(index);
+                
+                cardElement.innerHTML = `
+                    <div class="card-face card-front">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <div class="card-face card-back">
+                        ${card.emoji}
+                    </div>
+                `;
+                
+                grid.appendChild(cardElement);
+            });
+        }
+
+        function flipCard(index) {
+            if (!memoryActive || flippedCards.length >= 2) return;
+            
+            const card = document.querySelector(`[data-index="${index}"]`);
+            if (card.classList.contains('flipped') || card.classList.contains('matched')) return;
+            
+            card.classList.add('flipped');
+            flippedCards.push(index);
+            
+            if (flippedCards.length === 2) {
+                memoryMoves++;
+                updateMemoryStats();
+                checkMatch();
+            }
+        }
+
+        function checkMatch() {
+            const [first, second] = flippedCards;
+            const firstCard = document.querySelector(`[data-index="${first}"]`);
+            const secondCard = document.querySelector(`[data-index="${second}"]`);
+            
+            if (firstCard.dataset.match === secondCard.dataset.match) {
+                firstCard.classList.add('matched');
+                secondCard.classList.add('matched');
+                matchedPairs++;
+                updateMemoryStats();
+                
+                if (matchedPairs === 8) {
+                    endMemoryGame();
+                }
+                
+                flippedCards = [];
+            } else {
+                setTimeout(() => {
+                    firstCard.classList.remove('flipped');
+                    secondCard.classList.remove('flipped');
+                    flippedCards = [];
+                }, 1000);
+            }
+        }
+
+        function updateMemoryStats() {
+            document.getElementById('memoryMoves').textContent = memoryMoves;
+            document.getElementById('memoryMatches').textContent = matchedPairs;
+            
+            const minutes = Math.floor(memorySeconds / 60);
+            const secs = memorySeconds % 60;
+            document.getElementById('memoryTimer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function startMemoryTimer() {
+            memoryTimer = setInterval(() => {
+                memorySeconds++;
+                updateMemoryStats();
+            }, 1000);
+        }
+
+        function stopMemoryTimer() {
+            clearInterval(memoryTimer);
+        }
+
+        function endMemoryGame() {
+            memoryActive = false;
+            stopMemoryTimer();
+            
+            const memoryScore = Math.max(100 - memoryMoves * 2 - Math.floor(memorySeconds / 10), 10);
+            
+            const completedGame = {
+                score: memoryScore,
+                time: memorySeconds,
+                moves: memoryMoves,
                 date: new Date().toISOString(),
-                timestamp: Date.now()
+                game: 'memory'
             };
             
-            // Save to localStorage
-            let scores = JSON.parse(localStorage.getItem('astraquest_scores') || '[]');
-            scores.push(scoreData);
+            let gameHistory = JSON.parse(localStorage.getItem('astraquest_game_history') || '[]');
+            gameHistory.push(completedGame);
+            localStorage.setItem('astraquest_game_history', JSON.stringify(gameHistory));
             
-            // Keep only today's scores for today tab
-            const today = new Date().toDateString();
-            const todayScores = scores.filter(s => new Date(s.date).toDateString() === today);
-            
-            localStorage.setItem('astraquest_scores', JSON.stringify(scores));
-            localStorage.setItem('astraquest_today_scores', JSON.stringify(todayScores));
-            
-            closeModal();
-            updateLeaderboard();
-            
-            // Reset quiz
-            document.getElementById('quizContent').style.display = 'none';
-            document.getElementById('quizStart').style.display = 'block';
-            document.getElementById('timer').textContent = '00:00';
+            document.getElementById('finalScore').textContent = memoryScore;
+            document.getElementById('scoreModal').classList.add('active');
         }
 
-        // Close modal
-        function closeModal() {
-            document.getElementById('scoreModal').classList.remove('active');
-            document.getElementById('playerName').value = '';
-            document.getElementById('playerName').style.borderColor = 'rgba(255, 255, 255, 0.2)';
+        function resetMemoryGame() {
+            stopMemoryTimer();
+            document.getElementById('memoryContent').style.display = 'none';
+            document.getElementById('memoryStart').style.display = 'block';
+            initializeMemoryGame();
         }
 
-        // Switch leaderboard tab
+        // Planet Game Functions
+        function initializePlanetGame() {
+            planetScore = 0;
+            planetActive = true;
+            
+            document.getElementById('planetStart').style.display = 'none';
+            document.getElementById('planetContent').style.display = 'block';
+            
+            loadPlanetQuestion();
+        }
+
+        function loadPlanetQuestion() {
+            const availablePlanets = planetData.filter(p => p !== currentPlanet);
+            currentPlanet = availablePlanets[Math.floor(Math.random() * availablePlanets.length)];
+            
+            const wrongPlanets = planetData.filter(p => p !== currentPlanet).sort(() => 0.5 - Math.random()).slice(0, 3);
+            const options = [currentPlanet, ...wrongPlanets].sort(() => 0.5 - Math.random());
+            
+            document.getElementById('planetDisplay').textContent = currentPlanet.emoji;
+            document.getElementById('planetHint').textContent = currentPlanet.hint;
+            
+            const optionsContainer = document.getElementById('planetOptions');
+            optionsContainer.innerHTML = '';
+            
+            options.forEach(option => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'planet-option';
+                optionElement.textContent = option.name;
+                optionElement.onclick = () => selectPlanet(option.name);
+                optionsContainer.appendChild(optionElement);
+            });
+        }
+
+        function selectPlanet(planetName) {
+            const options = document.querySelectorAll('.planet-option');
+            
+            options.forEach(option => {
+                if (option.textContent === planetName) {
+                    option.classList.add(planetName === currentPlanet.name ? 'correct' : 'incorrect');
+                } else if (option.textContent === currentPlanet.name) {
+                    option.classList.add('correct');
+                }
+            });
+            
+            if (planetName === currentPlanet.name) {
+                planetScore += 10;
+                document.getElementById('planetScore').textContent = planetScore;
+            }
+            
+            setTimeout(() => {
+                loadPlanetQuestion();
+            }, 1500);
+        }
+
+        function nextPlanetQuestion() {
+            loadPlanetQuestion();
+        }
+
+        // Leaderboard Functions
         function switchTab(tab) {
             currentTab = tab;
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -929,7 +1487,6 @@
             updateLeaderboard();
         }
 
-        // Update leaderboard
         function updateLeaderboard() {
             const scoresKey = currentTab === 'today' ? 'astraquest_today_scores' : 'astraquest_scores';
             const scores = JSON.parse(localStorage.getItem(scoresKey) || '[]');
@@ -946,7 +1503,6 @@
             leaderboardList.style.display = 'grid';
             emptyLeaderboard.style.display = 'none';
             
-            // Sort scores (higher score first, then by time)
             const sortedScores = scores.sort((a, b) => {
                 if (b.score !== a.score) return b.score - a.score;
                 return a.time - b.time;
@@ -959,7 +1515,7 @@
                 item.className = 'leaderboard-item animate-in';
                 
                 const rankClass = index === 0 ? 'gold' : index === 1 ? 'silver' : index === 2 ? 'bronze' : '';
-                const rankIcon = index < 3 ? `<i class="fas fa-trophy" style="color: ${rankClass === 'gold' ? '#fbbf24' : rankClass === 'silver' ? '#9ca3af' : '#f97316'}"></i>` : '';
+                const rankIcon = index < 3 ? `<i class="fas fa-trophy" style="color: ${rankClass === 'gold' ? '#FFBE0B' : rankClass === 'silver' ? '#E0E0E0' : '#FF6B35'}"></i>` : '';
                 
                 item.innerHTML = `
                     <div class="rank ${rankClass}">${rankIcon || index + 1}</div>
@@ -975,7 +1531,6 @@
             });
         }
 
-        // Format date
         function formatDate(dateString) {
             const date = new Date(dateString);
             const now = new Date();
@@ -987,25 +1542,76 @@
             return date.toLocaleDateString();
         }
 
+        // Modal Functions
+        function saveScore() {
+            const playerName = document.getElementById('playerName').value.trim();
+            if (!playerName) {
+                document.getElementById('playerName').style.borderColor = 'var(--error)';
+                return;
+            }
+            
+            const scoreData = {
+                name: playerName,
+                score: parseInt(document.getElementById('finalScore').textContent),
+                time: seconds,
+                date: new Date().toISOString(),
+                timestamp: Date.now(),
+                game: currentGame
+            };
+            
+            let scores = JSON.parse(localStorage.getItem('astraquest_scores') || '[]');
+            scores.push(scoreData);
+            
+            const today = new Date().toDateString();
+            const todayScores = scores.filter(s => new Date(s.date).toDateString() === today);
+            
+            localStorage.setItem('astraquest_scores', JSON.stringify(scores));
+            localStorage.setItem('astraquest_today_scores', JSON.stringify(todayScores));
+            
+            closeModal();
+            updateLeaderboard();
+            updateQuestionStats();
+            
+            // Reset current game
+            if (currentGame === 'trivia') {
+                document.getElementById('quizContent').style.display = 'none';
+                document.getElementById('quizStart').style.display = 'block';
+                document.getElementById('timer').textContent = '00:00';
+            } else if (currentGame === 'memory') {
+                document.getElementById('memoryContent').style.display = 'none';
+                document.getElementById('memoryStart').style.display = 'block';
+            } else if (currentGame === 'planet') {
+                document.getElementById('planetContent').style.display = 'none';
+                document.getElementById('planetStart').style.display = 'block';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('scoreModal').classList.remove('active');
+            document.getElementById('playerName').value = '';
+            document.getElementById('playerName').style.borderColor = 'rgba(255, 255, 255, 0.2)';
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             createStars();
             updateLeaderboard();
+            updateQuestionStats();
             
             // Enter key in modal
             document.getElementById('playerName').addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') saveScore();
             });
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+            
+            // Smooth scroll for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
             });
         });
     </script>
